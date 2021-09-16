@@ -1,6 +1,9 @@
 <template>
     <header>
-        <h2>Spotif</h2>
+        <div>
+            <i class='fab fa-spotify' style='font-size:36px'></i>
+        </div>
+        <h2>Spotifi</h2>
     </header>
 </template>
 
@@ -19,6 +22,8 @@ header{
     padding: 15px;
     background-color: #212121;
     color: rgb(46, 173, 7);
+    font-size: 30px;
+    margin-left: -40%;
 
 }
 
