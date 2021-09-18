@@ -9,6 +9,10 @@
             </form>
         </div >
         <div class="container2">
+           
+        </div>
+        <div id="yt-player">
+            <youtubeplayer />
         </div>
     </body>
 </template>
@@ -16,11 +20,13 @@
 <script>
 
 import Header from './components/Header.vue'
+import youtubeplayer from'./components/Youtube/YouTubePlayer.vue'
 
 export default{
     name: 'App',
     components: {
         Header,
+        youtubeplayer,
     }
 }
 
