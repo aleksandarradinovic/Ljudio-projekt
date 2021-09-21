@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: 'header',
+    name: 'Header',
 }
 </script>
 
@@ -24,8 +24,5 @@ header{
     color: rgb(46, 173, 7);
     font-size: 30px;
     margin-left: -40%;
-
 }
-
-
 </style>
