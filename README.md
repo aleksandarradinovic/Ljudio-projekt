@@ -1,4 +1,4 @@
-# Vue Project
+# Vue Project - Ljudio
 
 Project description: Building an small youtube application where the client will be able to
 * Search for a specific song,
