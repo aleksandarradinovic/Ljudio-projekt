@@ -3,9 +3,9 @@
         <div>
               <Header/>
         </div>
-        <div id="yt-player">
+        <div class="container2" id="yt-player">
         </div>
-        <div class="container1">
+        <div class="container1" style="border: none;">
             <div >
                 <table class="table table-bordered">
                 <tr class="table-success">
@@ -33,37 +33,36 @@
                 </template>
             </Modal>
         </div>
-        <div class="container2">
-                    <button class="btn btn-outline-primary"  @click="previous()">Prev</button>
-                    <button class="btn btn-outline-info" @click="next()">Next</button>
-        </div>
         
         <div class="container1">
+            <div class="container2">
+                <button class="btn btn-outline-primary"  @click="previous()">Prev</button>
+                <button class="btn btn-outline-info" @click="next()">Next</button>
+            </div>
             <table id="songlisttable" class="table table-bordered">
-                <tr class="table-success"  :key="(song.videoId)" v-for="song in songlist">
+                <tr  :key="(song.videoId)" v-for="song in songlist">
                     <td class="table-success">
-                        <div>Song title: {{song.name}} Artist: {{song.artist.name}} 
-                        
+                        <div> Song title: {{song.name}} Artist: {{song.artist.name}}
                         </div>
                     </td>
-                    <td class="table-success">
+                    <td >
                         <div>
                             <button class="btn btn-primary" v-bind:data-songindex="songlist.indexOf(song)"  v-bind:id="song.videoId"  @click="playsong(song.videoId);" type="button"><i class="fas fa-play"></i></button>
                         </div>
                         
                     </td>
-                        <td class="table-success">
+                        <td>
                         <div>
                             <button type="button" class="btn" @click="showModalSong(song.videoId)"><i class="far fa-share-square"></i></button>
                         </div>
                     </td>
                 </tr>
-                <tr class="table-success" :key="artist.browseId" v-for="artist in artistlist">
+                <tr :key="artist.browseId" v-for="artist in artistlist">
                     <td class="table-success">
                         <div>Artist: {{artist.name}} </div>   
                     </td>
                     <td >
-                        <div><button class="btn btn-outline-primary" type="button" @click="searchyoutubeartistsong(artist.browseId)">Choose</button> </div>
+                        <div><button class="btn btn-primary" type="button" @click="searchyoutubeartistsong(artist.browseId)"><i class="far fa-hand-pointer"></i></button> </div>
                     </td>
                     <td >
                         <button type="button" class="btn" @click="showModalArtist(artist.name)"><i class="far fa-share-square"></i></button>
@@ -73,14 +72,9 @@
         </div>
         <div class="container1">
             <table class="table table-bordered">
-                <th class="table-success">
-                    <td class="table-success">
-                        <div>Artist: {{artistName}}</div>  
-                    </td>
-                </th>
                 <tr class="table-success" v-for="item in ArtistSongList" :key="item.id"> 
                     <td class="table-success">
-                        <div>Song name: {{item.name}} </div>  
+                        <div>Song name:{{item.name}}   &nbsp;&nbsp;&nbsp;&nbsp;  Artist:{{artistName}} </div>  
                     </td>
                 </tr>
             </table>
@@ -89,17 +83,14 @@
 </template>
 
 <script>
-
 import Header from './components/layout/Header.vue'
 import Modal from './components/layout/Modal.vue'
-
 
 export default{
     name: 'App',
     data() {
         return{
             isModalVisible: false,
-            toogle:true,
             songid: '',
             artistName: '',
             ArtistSongList: [],
@@ -133,12 +124,13 @@ export default{
       closeModal() {
           this.shareSongLink = 'https://www.youtube.com/watch?v=';
           this.shareArtistLink ='https://www.youtube.com/results?search_query='
-        this.isModalVisible = false;
+            this.isModalVisible = false;
       },
 
         searchyoutubesong: function(searchStringSong){
             this.songlist.splice(0);
             this.artistlist.splice(0);
+            this.ArtistSongList.splice(0);
             this.firstSong = true;
                 fetch("https://yt-music-api.herokuapp.com/api/yt/songs/" + searchStringSong , {
             "method": "GET",
@@ -327,48 +319,25 @@ body{
     align-items: center;
 }
 
-table{
-    margin:0 auto;
-    widows: 60%;
-}
-
-tr{
-    border: 2px solid grey;
-}
-
 p{
     font-weight: bold;
 }
 
-.searchButton{
-    float: left;
-  width: 20%;
-  padding: 10px;
-  background: #2196F3;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
-}
-
 .container1 {
-  width: 800px;
-  margin: 30px auto;
+  width: 600px;
+  margin: 5px auto;
   overflow: auto;
   min-height: 100px;
-  border: 1px solid rgb(28, 60, 87);
-  padding: 30px;
-  border-radius: 5px;
+  /* border: 1px solid rgb(28, 60, 87); */
   background-color: white;
 }
 
 .container2 {
-  width: 300px;
-  margin: 30px auto;
+  width: 200px;
+  margin: 5px auto;
   overflow: auto;
   min-height: 100px;
-  padding: 30px;
+  padding: 10px;
   border-radius: 5px;
   background-color: white;
   align-content: center;
