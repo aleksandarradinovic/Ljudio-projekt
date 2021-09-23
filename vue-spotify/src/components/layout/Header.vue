@@ -3,7 +3,7 @@
         <div>
             <i class='fab fa-spotify' style='font-size:36px'></i>
         </div>
-        <h2>Spotifi</h2>
+        <h2>Ljudio</h2>
     </header>
 </template>
 
