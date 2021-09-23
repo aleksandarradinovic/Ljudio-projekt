@@ -3,7 +3,7 @@
         <div>
               <Header/>
         </div>
-        <div class="container2" id="yt-player">
+        <div class="Youtubecontainer2" id="yt-player">
         </div>
         <div class="container1" style="border: none;">
             <div >
@@ -42,7 +42,7 @@
             <table id="songlisttable" class="table table-bordered">
                 <tr  :key="(song.videoId)" v-for="song in songlist">
                     <td class="table-success">
-                        <div> Song title: {{song.name}} Artist: {{song.artist.name}}
+                        <div> Song title: {{song.name}} &nbsp; &nbsp; &nbsp; Artist: {{song.artist.name}}
                         </div>
                     </td>
                     <td >
@@ -319,10 +319,6 @@ body{
     align-items: center;
 }
 
-p{
-    font-weight: bold;
-}
-
 .container1 {
   width: 600px;
   margin: 5px auto;
@@ -332,13 +328,24 @@ p{
   background-color: white;
 }
 
-.container2 {
-  width: 200px;
+.container2{
+    width: 200px;
   margin: 5px auto;
   overflow: auto;
   min-height: 100px;
   padding: 10px;
-  border-radius: 5px;
+  background-color: white;
+  align-content: center;
+  align-items: center;
+}
+
+.Youtubecontainer2 {
+    display: flex;
+  width: 400px;
+  margin: 5px auto;
+  overflow: auto;
+  min-height: 100px;
+  padding: 10px;
   background-color: white;
   align-content: center;
   align-items: center;
