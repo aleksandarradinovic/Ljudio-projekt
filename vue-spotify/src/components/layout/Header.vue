@@ -21,7 +21,7 @@ header{
     align-content: center;
     padding: 15px;
     background-color: #212121;
-    color: rgb(46, 173, 7);
+    color: rgb(18, 165, 116);
     font-size: 30px;
     margin-left: -40%;
 }
