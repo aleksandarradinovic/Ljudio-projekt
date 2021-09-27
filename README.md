@@ -10,7 +10,3 @@ Project description: Building an small youtube application where the client will
 
 Project experiance: Now when the project is done and all the features works in the project i've got stronger knowledge about how to work with an API and how to fetch data from the different endpoints presented. Better anderstanding about the vue js framework and how the javascript framework works and how to approach an project. 
 
-What i could have made better is:
-* Make a little more components and passing the data to the parent,
-* Working a little more with props and emiting events,
-* Less code in the App.vue file 
