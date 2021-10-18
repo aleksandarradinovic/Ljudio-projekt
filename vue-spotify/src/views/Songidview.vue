@@ -1,7 +1,8 @@
 <template>
 
 
-<div class="container1" style="border: none;">
+<div class="container1  p-5">
+    
     
                  <h3>Song videoId: "{{videoId}}"</h3> 
            
@@ -29,11 +30,10 @@ export default{
         ...mapActions(["fetchChosenSong"]),
         getSong: function(){
             // this.$store.state.videoId = this.videoId;
-            console.log(this.video)
             this.fetchChosenSong(this.videoId);   
         },
         NewSearch: function(){
-            this.$router.push({name: 'Song'})
+            this.$router.push({name: 'homeview'})
         }
     }
 }

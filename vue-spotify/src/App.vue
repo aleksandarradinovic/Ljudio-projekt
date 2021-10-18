@@ -5,7 +5,7 @@
         </div>
         <div>
             <Searchform />
-        </div>
+            </div>
         <div class="Youtubecontainer2" id="yt-player">
         </div>
         <router-view></router-view>

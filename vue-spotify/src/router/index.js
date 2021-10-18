@@ -3,8 +3,14 @@ import Artistview from '../views/Artistview.vue'
 import Songview from '../views/Songview.vue'
 import Artistidview from '../views/Artistidview.vue'
 import Songidview from '../views/Songidview.vue'
+import Home from '../views/homeview.vue'
 
 const routes = [
+  {
+    path: "/",
+    name: "homeview",
+    component: Home,
+  },
   {
     path: "/artist/:browseId",
     name: "Artistbrowseid",
@@ -12,21 +18,22 @@ const routes = [
     props: true,
   },
   {
-    path: "/artist",
+    path: "/artists/:stringArtists",
     name: "Artist",
     component: Artistview,
-
+    props: true,
   },
   {
-    path: "/songs/:videoId",
+    path: "/song/:videoId",
     name: "SongId",
     component: Songidview,
     props: true,
   },
   {
-    path: "/songs",
+    path: "/songs/:stringSongs",
     name: "Song",
     component: Songview,
+    props: true,
   },
 ];
 

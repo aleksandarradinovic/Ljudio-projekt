@@ -1,6 +1,7 @@
 
 <template>
   <div>
+    
     <div class="container2">
       <button class="btn btn-outline-primary"  @click="previous()">Prev</button>
       <button class="btn btn-outline-info"     @click="next()">Next</button>  
@@ -23,24 +24,25 @@
             <span>{{song.artist.name}}</span> 
           </td>
           <td>
-            <router-link class="routerlink" :to="{name: 'SongId', params: {videoId: song.videoId}}"><span>Show details</span></router-link>
+             <router-link class="routerlink" :to="{name: 'SongId', params: {videoId: song.videoId}}">
+               <span>Show details</span>
+               </router-link> 
+              
           </td>
           
-            <button class="btn btn-danger" v-bind:data-songindex="this.$store.state.searchedSongs.indexOf(song)"  v-bind:id="song.videoId" @click="playsong(song.videoId);" type="button"><i class="fas fa-play"></i></button>
+            <button class="btn btn-danger" v-bind:data-songindex=" this.$store.state.searchedSongs.indexOf(song)"  v-bind:id="song.videoId" @click="playsong(song.videoId);" type="button"><i class="fas fa-play"></i></button>
           
         </tr>
         </table>
-    </div>
-    <div>
-      <h1>{{namename}}</h1>
-    </div>    
+    </div>   
   </div>
 </template>
 
 <script>
-
+import { mapActions } from 'vuex'
 export default{
     name: 'SongView',
+    props: ["stringSongs"],
     data() {
         return {
           chosenSong: {},
@@ -51,8 +53,16 @@ export default{
           songid:'',
         }
       },
+      
+    beforeMount(){
+          this.getSongs()
+      }, 
 
-  methods: {
+    methods: {
+      ...mapActions(['fetchSongs']),
+      getSongs(){
+      this.fetchSongs(this.stringSongs)
+      },
     playsong(id){
         this.$store.state.chosenSong = id;
         if (event.currentTarget.children[0].classList.contains("fa-play")){
@@ -101,7 +111,6 @@ export default{
             {
                 this.videoindex = 0;
             }
-
             var videobutton = document.getElementById("songlisttable").children[this.videoindex].getElementsByTagName("button")[0];
             
             if(this.videoid != '')
@@ -114,16 +123,13 @@ export default{
             window.player.loadVideoById(this.videoid)
             videobutton.children[0].classList.remove("fa-play");
             videobutton.children[0].classList.add("fa-pause");
-
         },
         previous(){
-
              this.videoindex  = this.videoindex  -1;
              if (this.videoindex < 0)
             {
                 this.videoindex = this.$store.state.searchedSongs.length -1;
             }
-
             var videobutton = document.getElementById("songlisttable").children[this.videoindex].getElementsByTagName("button")[0];
             if(this.videoid != '')
             {

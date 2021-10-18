@@ -14,9 +14,20 @@
 </template>
 
 <script>
-
+import {mapActions} from 'vuex'
 export default{
     name: 'Artistview',
+    props: ['stringArtists'],
+
+    beforeMount(){
+        this.getArtistList()
+    },
+    methods:{
+        ...mapActions(['fetchArtists']),
+        getArtistList(){
+            this.fetchArtists(this.stringArtists)
+        }
+    }
 }
 </script>
 

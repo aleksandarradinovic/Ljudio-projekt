@@ -14,7 +14,7 @@
     </div>
 </template>
 <script>
-
+// import router from '../router/index'
 export default{
     name: 'Artistidview',
     props: ['browseId'],
@@ -26,7 +26,7 @@ export default{
     },
     methods: {
         NewSearch(){
-            this.$router.go(-1)
+            this.$router.push({name: 'homeview'})
         }
     },
 
